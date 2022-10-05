@@ -1,0 +1,10 @@
+{
+    "devDependencies": {
+      "typescript": "^4.8.4"
+    },
+    "scripts": {
+      "build": "npx tsc",
+      "watch":  "npx tsc -w"
+    }
+  }
+  
