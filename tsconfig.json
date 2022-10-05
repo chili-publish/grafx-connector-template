@@ -27,7 +27,8 @@
         ],
         "typeRoots": [
             "./typings",
-        ]
+        ],
+        "outDir": "./build"
     },
-    "include": ["./src/connector.ts", "./typings"]
+    "include": ["./src", "./typings"]
 }
