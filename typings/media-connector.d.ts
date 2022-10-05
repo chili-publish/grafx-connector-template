@@ -44,6 +44,7 @@ declare module "grafx-studio-mediaconnector" {
         id: String;
         name: String;
         relativePath: String;
+        type: number;
         metaData: import("grafx-studio-connector-shared").Dictionary;
     }
 }

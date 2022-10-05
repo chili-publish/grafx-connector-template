@@ -9,9 +9,9 @@ class DemoConnector implements MediaConnector {
     }
     async query(options: QueryOptions, context: Dictionary): Promise<MediaPage> {
         return Promise.resolve({pageSize: 3, data:[
-            { id: 'demo-1', name: 'Demo 1', relativePath: "/root", metaData: {} },
-            { id: 'demo-2', name: 'Demo 2', relativePath: "/root", metaData: {} },
-            { id: 'demo-3', name: 'Demo 3', relativePath: "/root", metaData: {} },
+            { id: 'demo-1', type: 0,  name: 'Demo 1', relativePath: "/root", metaData: {} },
+            { id: 'demo-2', type: 0, name: 'Demo 2', relativePath: "/root", metaData: {} },
+            { id: 'demo-3', type: 0, name: 'Demo 3', relativePath: "/root", metaData: {} },
         ]});
     }
     async download(id: string, previewType: "lowresWeb" | "highresWeb", context: Dictionary): Promise<ArrayBufferPointer> {
