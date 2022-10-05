@@ -5,8 +5,8 @@ class DemoConnector {
     async query(options, context) {
         return Promise.resolve([
             { id: 'demo-1', name: 'Demo 1', relativePath: "/root", metaData: {} },
-            { id: 'demo-2', name: 'Demo 1', relativePath: "/root", metaData: {} },
-            { id: 'demo-3', name: 'Demo 1', relativePath: "/root", metaData: {} },
+            { id: 'demo-2', name: 'Demo 2', relativePath: "/root", metaData: {} },
+            { id: 'demo-3', name: 'Demo 3', relativePath: "/root", metaData: {} },
         ]);
     }
     async download(id, previewType, context) {
