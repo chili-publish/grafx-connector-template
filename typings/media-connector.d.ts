@@ -1,7 +1,7 @@
 declare module "grafx-studio-mediaconnector" {
 
     interface MediaConnector {
-        query(options: QueryOptions, context: import("grafx-studio-connector-shared").Dictionary): Promise<Media[]>;
+        query(options: QueryOptions, context: import("grafx-studio-connector-shared").Dictionary): Promise<MediaPage>;
         download(id: string, previewType: "lowresWeb"|"highresWeb", context: import("grafx-studio-connector-shared").Dictionary): Promise<import("grafx-studio-connector-shared").ArrayBufferPointer>
         upload(name: string, blob: Int8Array): Promise<Media>
         remove(id: string): Promise<boolean>
@@ -33,6 +33,11 @@ declare module "grafx-studio-mediaconnector" {
         pageToken: string | null;
         pageSize: number;
         sortBy: string | null;
+    }
+
+    interface MediaPage {
+        pageSize: number;
+        data: Media[];
     }
 
     interface Media {
