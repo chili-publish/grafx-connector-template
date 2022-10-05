@@ -1,4 +1,4 @@
-import { ArrayBufferPointer, ConnectorRuntimeContext } from "grafx-studio-connector-shared";
+import { ArrayBufferPointer, ConnectorRuntimeContext, Dictionary } from "grafx-studio-connector-shared";
 import { Media, MediaConnector, MediaConnectorCapabilities, QueryOptions } from "grafx-studio-mediaconnector";
 
 class ChiliMediaConnector implements MediaConnector {
@@ -8,7 +8,7 @@ class ChiliMediaConnector implements MediaConnector {
         this.runtime = runtime;
     }
 
-    async query(options: QueryOptions, context: Map<string, string>): Promise<Media[]> {
+    async query(options: QueryOptions, context: Dictionary): Promise<Media[]> {
         let queryEndpoint = `${this._getBaseMediaUrl()}/directory?search=${options.filter?.join(' ') ?? ''}&limit=${options.pageSize ?? ''}&pageToken=${options.pageToken ?? ''}&sortBy=${options.sortBy ?? ''}&sortOrder=${options.sortOrder ?? ''}`;
         const collection = options.collection;
 
@@ -25,7 +25,7 @@ class ChiliMediaConnector implements MediaConnector {
         return JSON.parse(result.text);
     }
 
-    async download(id: string, previewType: "lowresWeb"|"highresWeb", context: Map<string, string>): Promise<ArrayBufferPointer> {
+    async download(id: string, previewType: "lowresWeb"|"highresWeb", context: Dictionary): Promise<ArrayBufferPointer> {
         let queryEndpoint = `${this._getBaseMediaUrl()}/${id}`;
 
         switch (previewType) {

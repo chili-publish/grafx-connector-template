@@ -1,8 +1,8 @@
 declare module "grafx-studio-mediaconnector" {
 
     interface MediaConnector {
-        query(options: QueryOptions, context: Map<string, string>): Promise<Media[]>;
-        download(id: string, previewType: "lowresWeb"|"highresWeb", context: Map<string, string>): Promise<import("grafx-studio-connector-shared").ArrayBufferPointer>
+        query(options: QueryOptions, context: import("grafx-studio-connector-shared").Dictionary): Promise<Media[]>;
+        download(id: string, previewType: "lowresWeb"|"highresWeb", context: import("grafx-studio-connector-shared").Dictionary): Promise<import("grafx-studio-connector-shared").ArrayBufferPointer>
         upload(name: string, blob: Int8Array): Promise<Media>
         remove(id: string): Promise<boolean>
         copy(id: string, newName: string): Promise<Media>
