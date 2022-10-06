@@ -1,8 +1,8 @@
 import { ArrayBufferPointer, ConnectorRuntimeContext, Dictionary } from "grafx-studio-connector-shared";
 import { Media, MediaConnector, MediaConnectorCapabilities, MediaPage, QueryOptions } from "grafx-studio-mediaconnector";
 
-class DemoConnector implements MediaConnector {
-    runtime: ConnectorRuntimeContext;
+export class DemoConnector implements MediaConnector {
+    runtime: ConnectorRuntimeContext; 
 
     constructor(runtime: ConnectorRuntimeContext) {
         this.runtime = runtime;
@@ -12,7 +12,7 @@ class DemoConnector implements MediaConnector {
             { id: 'demo-1', type: 0,  name: 'Demo 1', relativePath: "/root", metaData: {} },
             { id: 'demo-2', type: 0, name: 'Demo 2', relativePath: "/root", metaData: {} },
             { id: 'demo-3', type: 0, name: 'Demo 3', relativePath: "/root", metaData: {} },
-        ]});
+        ], links: { nextPage: "" }});
     }
     async download(id: string, previewType: "lowresWeb" | "highresWeb", context: Dictionary): Promise<ArrayBufferPointer> {
         return (await this.runtime.fetch(`https://dummyimage.com/600x400/000/fff&text=${id}`, {})).arrayBuffer;

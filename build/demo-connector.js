@@ -1,4 +1,4 @@
-class DemoConnector {
+export class DemoConnector {
     constructor(runtime) {
         this.runtime = runtime;
     }
@@ -7,7 +7,7 @@ class DemoConnector {
                 { id: 'demo-1', type: 0, name: 'Demo 1', relativePath: "/root", metaData: {} },
                 { id: 'demo-2', type: 0, name: 'Demo 2', relativePath: "/root", metaData: {} },
                 { id: 'demo-3', type: 0, name: 'Demo 3', relativePath: "/root", metaData: {} },
-            ] });
+            ], links: { nextPage: "" } });
     }
     async download(id, previewType, context) {
         return (await this.runtime.fetch(`https://dummyimage.com/600x400/000/fff&text=${id}`, {})).arrayBuffer;
@@ -37,4 +37,3 @@ class DemoConnector {
         };
     }
 }
-export {};

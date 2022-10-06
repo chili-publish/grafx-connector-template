@@ -1,4 +1,4 @@
-class ChiliMediaConnector {
+export class ChiliMediaConnector {
     constructor(runtime) {
         this.runtime = runtime;
     }
@@ -62,4 +62,3 @@ class ChiliMediaConnector {
         return baseUrl + `/environment/${environment}/media`;
     }
 }
-export {};
