@@ -99,3 +99,6 @@ dist
 
 # TernJS port file
 .tern-port
+docs/examples/basic-demo-connector/build/index.js
+docs/examples/basic-demo-connector/build/index.js.LICENSE.txt
+docs/examples/basic-demo-connector/build/index.js.map

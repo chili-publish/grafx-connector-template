@@ -38,6 +38,11 @@ declare module "grafx-studio-mediaconnector" {
     interface MediaPage {
         pageSize: number;
         data: Media[];
+        links: Links;
+    }
+
+    interface Links{
+        nextPageToken: String;
     }
 
     interface Media {
