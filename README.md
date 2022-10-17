@@ -78,3 +78,19 @@ We need your feedback! If you think you are missing critical stuff to implement 
 ## Connector.json
 
 This is the wrapper adding metadata to the connector script. For now, and this is subject to change, it is needed to embed the script as a json string inside the .json file. In the SDK, we need to provide a URL to this file to finally load the connector. The URL is required to be accessible on the public internet (because we want to use it during output generation).
+
+# Early Access Program
+
+This repository is part of the CHILI publish Early Access program in preparation of SpicyTalks. If you want to know more, reach out to your main CHILI contact.
+
+# SDK Documentation
+
+[Link to the official SDK documentation on GitHub](https://chili-publish.github.io/editor-sdk/)
+
+# Feedback?
+
+If you have any feedback on the technical parts of the application, a feature request, a bug to report or a general technical question, don’t hesitate to [create a new issue in the SDK repository](https://github.com/chili-publish/editor-sdk/issues/new/choose).
+
+# License
+
+This project is [MIT licensed](https://github.com/chili-publish/grafx-connector-template/blob/main/LICENSE).
