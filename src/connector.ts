@@ -1,7 +1,7 @@
 import { ArrayBufferPointer, ConnectorRuntimeContext, Dictionary } from "grafx-studio-connector-shared";
 import { Media, MediaConnector, MediaConnectorCapabilities, MediaPage, QueryOptions } from "grafx-studio-mediaconnector";
 
-class ChiliMediaConnector implements MediaConnector {
+export class ChiliMediaConnector implements MediaConnector {
     runtime: ConnectorRuntimeContext;
 
     constructor(runtime: ConnectorRuntimeContext) {
