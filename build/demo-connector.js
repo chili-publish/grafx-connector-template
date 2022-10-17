@@ -12,8 +12,7 @@ class DemoConnector {
             data = [...data, { id: 'demo-4', type: 0, name: 'Demo 4 (extra)', relativePath: '/root', metaData: {} }];
         }
         if (options.filter) {
-            this.runtime.logError(options.filter[0]);
-            data = data.filter(item => { item.name.toLowerCase().includes(options.filter[0].toLowerCase()); });
+            data = data.filter(item => { return item.name.toLowerCase().includes(options.filter[0].toLowerCase()); });
         }
         return Promise.resolve({ pageSize: data.length, data: data, links: { nextPageToken: '' } });
     }
