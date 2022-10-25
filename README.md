@@ -55,8 +55,7 @@ Summary:
 Chili-Publish seeks to ensure that connectors **can**:
 
 * Only be run by an explicit user action
-* Read any data in your Studio document (e.g. a “find frame by name”)
-* Modify any data in your Figma document (e.g. a “rename selected layers”)
+* Read any data in your Studio document
 * Perform fetch commands to registered domains
 * Run both on web and server environments
 
