@@ -19,31 +19,38 @@ class DemoConnector implements MediaConnector {
             data = [...data, { id: 'demo-4', type: 0, name: 'Demo 4 (extra)', relativePath: '/root', metaData: {} }]
         }
 
-        if (options.filter) {            
-            data = data.filter(item => { return item.name.toLowerCase().includes(options.filter![0].toLowerCase()) });
+        if (options.filter) {
+          data = data.filter((item) => {
+            return item.name
+              .toLowerCase()
+              .includes(options.filter![0].toLowerCase());
+          });
         }
 
-        return Promise.resolve({ pageSize: data.length, data: data, links: { nextPageToken: '' } });
-
+        return Promise.resolve({
+          pageSize: data.length,
+          data: data,
+          links: { nextPageToken: "" },
+        });
     }
+    
     async download(id: string, previewType: 'lowresWeb' | 'highresWeb', context: Dictionary): Promise<ArrayBufferPointer> {
-        return (await this.runtime.fetch(`https://dummyimage.com/600x400/000/fff&text=${id}`, {})).arrayBuffer;
+        return (
+          await this.runtime.fetch(
+            `https://dummyimage.com/600x400/000/fff&text=${id}`,
+            {}
+          )
+        ).arrayBuffer;
     }
-    upload(name: string, blob: Int8Array): Promise<Media> {
-        throw new Error('Method not implemented.');
-    }
-    remove(id: string): Promise<boolean> {
-        throw new Error('Method not implemented.');
-    }
-    copy(id: string, newName: string): Promise<Media> {
-        throw new Error('Method not implemented.');
-    }
+
     getQueryOptions(): string[] | null {
         return ['extraItem'];
     }
+
     getDownloadOptions(): string[] | null {
         return [];
     }
+    
     getCapabilities(): MediaConnectorCapabilities {
         return {
             copy: false,
@@ -52,5 +59,17 @@ class DemoConnector implements MediaConnector {
             remove: false,
             upload: false
         };
+    }
+
+    upload(name: string, blob: Int8Array): Promise<Media> {
+        throw new Error('Method not implemented.');
+    }
+
+    remove(id: string): Promise<boolean> {
+        throw new Error('Method not implemented.');
+    }
+
+    copy(id: string, newName: string): Promise<Media> {
+        throw new Error('Method not implemented.');
     }
 }
