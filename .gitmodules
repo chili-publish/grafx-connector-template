@@ -1,0 +1,3 @@
+[submodule "studio-sdk"]
+	path = studio-sdk
+	url = https://github.com/chili-publish/studio-sdk.git

@@ -4,6 +4,6 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "watch":  "npx tsc -w"
+    "watch": "npx tsc -w"
   }
 }

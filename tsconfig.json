@@ -26,9 +26,9 @@
             "ES2020",
         ],
         "typeRoots": [
-            "./typings",
+            "./studio-sdk/types",
         ],
         "outDir": "./build"
     },
-    "include": ["./src", "./typings"]
+    "include": ["./src"]
 }

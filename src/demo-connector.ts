@@ -1,5 +1,5 @@
-import { ArrayBufferPointer, ConnectorRuntimeContext, Dictionary } from 'grafx-studio-connector-shared';
-import { Media, MediaConnector, MediaConnectorCapabilities, MediaPage, QueryOptions } from 'grafx-studio-mediaconnector';
+import { ArrayBufferPointer, ConnectorRuntimeContext, Dictionary, DownloadType, QueryOptions } from '../studio-sdk/types/Connector.Shared';
+import { Media, MediaConnector, MediaConnectorCapabilities, MediaDetail, MediaPage,  } from '../studio-sdk/types/MediaConnector';
 
 class DemoConnector implements MediaConnector {
     runtime: ConnectorRuntimeContext;
@@ -7,6 +7,11 @@ class DemoConnector implements MediaConnector {
     constructor(runtime: ConnectorRuntimeContext) {
         this.runtime = runtime;
     }
+
+    detail(id: string): Promise<MediaDetail> {
+        throw new Error('Method not implemented.');
+    }
+
     async query(options: QueryOptions, context: Dictionary): Promise<MediaPage> {
 
         var data = [
@@ -27,14 +32,14 @@ class DemoConnector implements MediaConnector {
           });
         }
 
-        return Promise.resolve({
+        return Promise.resolve({            
           pageSize: data.length,
           data: data,
-          links: { nextPageToken: "" },
+          links: { nextPage: "" },
         });
     }
     
-    async download(id: string, previewType: 'lowresWeb' | 'highresWeb', context: Dictionary): Promise<ArrayBufferPointer> {
+    async download(id: string, previewType: DownloadType, context: Dictionary): Promise<ArrayBufferPointer> {
         return (
           await this.runtime.fetch(
             `https://dummyimage.com/600x400/000/fff&text=${id}`,
@@ -57,11 +62,12 @@ class DemoConnector implements MediaConnector {
             filtering: true,
             query: true,
             remove: false,
-            upload: false
+            upload: false,
+            detail: false
         };
     }
 
-    upload(name: string, blob: Int8Array): Promise<Media> {
+    upload(name: string, blob: ArrayBufferPointer): Promise<Media> {
         throw new Error('Method not implemented.');
     }
 
