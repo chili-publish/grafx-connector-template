@@ -84,7 +84,7 @@ This repository is part of the CHILI publish Early Access program in preparation
 
 # SDK Documentation
 
-[Link to the official SDK documentation on GitHub](https://chili-publish.github.io/editor-sdk/)
+[Link to the official SDK documentation on GitHub](https://chili-publish.github.io/studio-sdk/)
 
 # Feedback?
 
